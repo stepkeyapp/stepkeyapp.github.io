@@ -195,9 +195,10 @@
     <div class="card-header">
       <h2>Stockage et sécurité</h2>
     </div>
-    <p><strong>Toutes tes données sont stockées localement sur ton appareil</strong> via le stockage sécurisé d'Expo (AsyncStorage). Nous ne gérons aucun serveur propre et tes données personnelles ne quittent jamais ton téléphone.</p>
+    <p><strong>Toutes tes données sont stockées localement sur ton appareil</strong> via le stockage sécurisé d'Expo (AsyncStorage). Nous ne gérons aucun serveur : nous n'avons jamais accès à tes données.</p>
+    <p><strong>Sauvegarde Google</strong> — si la sauvegarde est activée sur ton téléphone (c'est le cas par défaut), Android copie les données de StepKey dans l'espace de sauvegarde de ton compte Google, pour que tu les retrouves si tu réinstalles l'app ou changes de téléphone. Cette copie est gérée et chiffrée par Google, et nous n'y avons pas accès. Tu peux la désactiver dans les réglages de ton téléphone (Google → Sauvegarde).</p>
     <p>La seule exception concerne les achats in-app : les informations relatives à ton abonnement Premium et à tes achats de jokers sont traitées par <strong>RevenueCat</strong>, un service tiers certifié, conformément à leur propre politique de confidentialité.</p>
-    <p>Si tu désinstalles l'application, toutes les données locales sont automatiquement supprimées de ton appareil.</p>
+    <p>Si tu désinstalles l'application, toutes les données locales sont automatiquement supprimées de ton appareil. La copie de sauvegarde, si elle existe, se gère depuis ton compte Google.</p>
   </div>
 
   <div class="card">
@@ -230,8 +231,9 @@
     <ul>
       <li><strong>RevenueCat</strong> — traitement sécurisé des achats in-app (abonnement Premium et packs de jokers).</li>
       <li><strong>Google Play</strong> — lors de l'achat, la plateforme traite les informations de paiement selon sa propre politique. StepKey n'a jamais accès à tes informations bancaires.</li>
+      <li><strong>Sauvegarde Google</strong> (si elle est activée sur ton téléphone) — copie des données de l'app dans ton propre compte Google, voir « Stockage et sécurité ».</li>
     </ul>
-    <p>Aucune donnée d'activité physique, de statistiques ou de préférences n'est jamais transmise à des tiers.</p>
+    <p>Aucune donnée d'activité physique, de statistiques ou de préférences n'est transmise à des tiers, à part cette sauvegarde dans ton propre compte Google.</p>
   </div>
 
   <div class="card">
