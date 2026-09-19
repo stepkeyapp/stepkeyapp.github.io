@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#17131F" />
+  <title>Conditions d'utilisation — StepKey</title>
+  <style>
+    @font-face { font-family: 'Exo 2'; font-weight: 700; font-display: swap; src: url('fonts/exo2_bold.ttf') format('truetype'); }
+    @font-face { font-family: 'Exo 2'; font-weight: 900; font-display: swap; src: url('fonts/exo2_black.ttf') format('truetype'); }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #17131F;
+      --bg-deep:  #100A18;
+      --card:     rgba(255,255,255,0.035);
+      --accent:   #F7B955;
+      --accent-l: #FFCF6E;
+      --accent-d: #F2922F;
+      --text:     #F5ECDD;
+      --body:     rgba(245,236,221,0.78);
+      --muted:    rgba(245,236,221,0.5);
+      --border:   rgba(247,185,85,0.16);
+    }
+
+    body {
+      background: linear-gradient(180deg, var(--bg-deep) 0%, var(--bg) 420px);
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: -220px; left: 50%;
+      transform: translateX(-50%);
+      width: 820px; height: 520px;
+      background: radial-gradient(ellipse, rgba(247,185,85,0.10) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; padding: 60px 24px 80px; }
+
+    header { text-align: center; margin-bottom: 56px; }
+
+    .logo { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 28px; text-decoration: none; }
+    .logo svg { width: 34px; height: 34px; }
+    .logo-text { font-family: 'Exo 2', sans-serif; font-size: 22px; font-weight: 900; letter-spacing: 1px; color: #fff; }
+
+    header h1 {
+      font-family: 'Exo 2', sans-serif;
+      font-size: clamp(28px, 5vw, 40px);
+      font-weight: 900;
+      letter-spacing: 0.3px;
+      color: #fff;
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+
+    header p { color: var(--muted); font-size: 14px; letter-spacing: 0.3px; }
+
+    .updated {
+      display: inline-block;
+      margin-top: 14px;
+      padding: 5px 14px;
+      border-radius: 20px;
+      background: rgba(247,185,85,0.08);
+      border: 1px solid var(--border);
+      color: var(--accent);
+      font-size: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px;
+      margin-bottom: 20px;
+      transition: border-color 0.2s;
+    }
+    .card:hover { border-color: rgba(247,185,85,0.3); }
+    .card-header { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
+    .card h2 { font-family: 'Exo 2', sans-serif; font-size: 19px; font-weight: 700; color: #fff; letter-spacing: 0.2px; }
+    .card p { color: var(--body); margin-bottom: 12px; }
+    .card p:last-child { margin-bottom: 0; }
+    .card strong { color: var(--text); }
+    .card a { color: var(--accent); }
+
+    ul { list-style: none; margin-top: 8px; }
+    ul li { position: relative; padding-left: 18px; margin-bottom: 8px; color: var(--body); }
+    ul li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 10px;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      opacity: 0.8;
+    }
+
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+    .tag {
+      padding: 5px 13px;
+      border-radius: 20px;
+      background: rgba(247,185,85,0.07);
+      border: 1px solid rgba(247,185,85,0.22);
+      color: var(--accent);
+      font-size: 12px;
+      letter-spacing: 0.4px;
+      font-weight: 600;
+    }
+
+    .contact-block {
+      background: linear-gradient(135deg, rgba(247,185,85,0.09), rgba(242,146,47,0.04));
+      border: 1px solid rgba(247,185,85,0.24);
+      border-radius: 20px;
+      padding: 32px;
+      text-align: center;
+      margin-top: 40px;
+    }
+    .contact-block h3 { font-family: 'Exo 2', sans-serif; font-size: 21px; font-weight: 900; color: #fff; margin-bottom: 8px; }
+    .contact-block p { color: var(--muted); margin-bottom: 20px; }
+    .contact-block a {
+      display: inline-block;
+      padding: 12px 28px;
+      background: linear-gradient(90deg, var(--accent-l), var(--accent-d));
+      color: #17131F;
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+      border-radius: 28px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .contact-block a:hover { opacity: 0.88; }
+
+    footer { text-align: center; margin-top: 56px; color: rgba(245,236,221,0.3); font-size: 13px; }
+    footer nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 18px; margin-bottom: 14px; }
+    footer nav a { color: rgba(245,236,221,0.55); text-decoration: none; }
+    footer nav a:hover, footer nav a[aria-current] { color: var(--accent); }
+
+    @media (max-width: 520px) {
+      .container { padding: 40px 16px 60px; }
+      .card { padding: 22px; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <a class="logo" href="privacy-policy.html">
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <defs><clipPath id="sky"><rect x="0" y="0" width="32" height="20"/></clipPath></defs>
+        <circle cx="16" cy="20" r="9.5" fill="#F7B955" clip-path="url(#sky)"/>
+        <rect x="3" y="22" width="26" height="2.4" rx="1.2" fill="#F7B955" opacity="0.55"/>
+      </svg>
+      <span class="logo-text">StepKey</span>
+    </a>
+    <h1>Conditions d'utilisation</h1>
+    <p>Les règles du jeu, écrites simplement.</p>
+    <span class="updated">Dernière mise à jour : septembre 2026</span>
+  </header>
+
+  <div class="card">
+    <div class="card-header">
+      <h2>À quoi sert StepKey</h2>
+    </div>
+    <p>StepKey t'aide à passer moins de temps sur ton téléphone : quand ton temps d'écran est écoulé sur les apps que tu as choisies, elles se ferment jusqu'à ce que tu aies marché.</p>
+    <p>En utilisant StepKey, tu acceptes ces conditions. Si tu n'es pas d'accord, n'utilise pas l'application.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <h2>Ce que StepKey peut et ne peut pas faire</h2>
+    </div>
+    <ul>
+      <li>Tes pas sont comptés par le capteur de ton téléphone : leur précision dépend de ton appareil.</li>
+      <li>Le blocage des apps dépend des autorisations que tu donnes (données d'utilisation, affichage par-dessus les apps et, si besoin, accessibilité). Certains téléphones limitent les apps en arrière-plan pour économiser la batterie, ce qui peut gêner le blocage.</li>
+      <li>StepKey n'est ni un dispositif médical, ni un outil de contrôle parental.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <h2>Ta sécurité</h2>
+    </div>
+    <p>Quand tu marches, <strong>reste attentif à ce qui t'entoure</strong> : voitures, traversées, obstacles. Ne regarde pas ton écran en marchant. Tu restes responsable de ta sécurité pendant tes marches.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <h2>Achats</h2>
+    </div>
+    <ul>
+      <li><strong>Premium</strong> — abonnement mensuel ou annuel, payé avec Google Play. Il se renouvelle automatiquement jusqu'à ce que tu le résilies. Tu peux le résilier à tout moment dans Google Play (Paiements et abonnements → Abonnements) : il reste actif jusqu'à la fin de la période déjà payée.</li>
+      <li><strong>Packs de jokers</strong> — contenu numérique utilisable tout de suite. Les jokers achetés n'expirent pas.</li>
+      <li><strong>StepCoins et thèmes</strong> — les StepCoins se gagnent en marchant. C'est une monnaie de l'app, sans valeur réelle : ils ne s'achètent pas, ne s'échangent pas et ne se remboursent pas.</li>
+    </ul>
+    <p style="margin-top: 16px;">Les prix sont affichés dans l'app et sur Google Play, taxes comprises.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <h2>Remboursements</h2>
+    </div>
+    <p>Les paiements sont traités par <strong>Google Play</strong>, pas par StepKey : nous n'avons jamais accès à tes informations bancaires.</p>
+    <ul>
+      <li>Tu peux demander un remboursement directement sur Google Play, selon ses règles (en général possible dans les 48 heures après l'achat).</li>
+      <li>Après ce délai, ou en cas de problème (achat non reçu, jokers manquants, achat par erreur), écris-nous : nous examinerons chaque demande.</li>
+      <li>Pour un contenu numérique fourni immédiatement, le droit de rétractation de 14 jours peut ne pas s'appliquer (article L221-28 du Code de la consommation).</li>
+    </ul>
+    <p style="margin-top: 16px;">Premium se récupère sur un nouveau téléphone avec « Restaurer mes achats ». Les jokers achetés, les StepCoins et les thèmes sont enregistrés sur ton téléphone : ils sont perdus si tu désinstalles l'app ou changes de téléphone.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <h2>Si tu as moins de 18 ans</h2>
+    </div>
+    <p>Demande l'accord d'un parent avant tout achat. Les parents peuvent exiger leur accord pour chaque achat grâce au contrôle parental de Google Play.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <h2>Tes données</h2>
+    </div>
+    <p>Tout est expliqué dans notre <a href="privacy-policy.html">politique de confidentialité</a>.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <h2>Changements et droit applicable</h2>
+    </div>
+    <p>Ces conditions peuvent évoluer : la date en haut de cette page change à chaque mise à jour.</p>
+    <p>Elles sont soumises au droit français. En cas de désaccord, écris-nous d'abord : on cherchera une solution ensemble.</p>
+  </div>
+
+
+  <div class="contact-block">
+    <h3>Une question ?</h3>
+    <p>Écris-nous, on te répond dès que possible.</p>
+    <a href="mailto:stepkey73@gmail.com">stepkey73@gmail.com</a>
+  </div>
+
+  <footer>
+    <nav>
+      <a href="privacy-policy.html">Confidentialité</a>
+      <a href="conditions.html" aria-current="page">Conditions d'utilisation</a>
+    </nav>
+    <p>&copy; 2026 StepKey — Tous droits réservés<br/>
+    Fait avec <span style="color: var(--accent);">♥</span> pour un usage numérique plus sain.</p>
+  </footer>
+
+</div>
+</body>
+</html>

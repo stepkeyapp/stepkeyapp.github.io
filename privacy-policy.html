@@ -3,22 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#17131F" />
   <title>Politique de confidentialité — StepKey</title>
   <style>
+    @font-face { font-family: 'Exo 2'; font-weight: 700; font-display: swap; src: url('fonts/exo2_bold.ttf') format('truetype'); }
+    @font-face { font-family: 'Exo 2'; font-weight: 900; font-display: swap; src: url('fonts/exo2_black.ttf') format('truetype'); }
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:       #020812;
-      --bg-card:  #070f1e;
-      --accent:   #00D4FF;
-      --accent2:  #0096CC;
-      --text:     #e8f0fe;
-      --muted:    rgba(255,255,255,0.45);
-      --border:   rgba(0,212,255,0.12);
+      --bg:       #17131F;
+      --bg-deep:  #100A18;
+      --card:     rgba(255,255,255,0.035);
+      --accent:   #F7B955;
+      --accent-l: #FFCF6E;
+      --accent-d: #F2922F;
+      --text:     #F5ECDD;
+      --body:     rgba(245,236,221,0.78);
+      --muted:    rgba(245,236,221,0.5);
+      --border:   rgba(247,185,85,0.16);
     }
 
     body {
-      background: var(--bg);
+      background: linear-gradient(180deg, var(--bg-deep) 0%, var(--bg) 420px);
+      background-color: var(--bg);
       color: var(--text);
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       font-size: 16px;
@@ -29,68 +37,40 @@
     body::before {
       content: '';
       position: fixed;
-      top: -200px; left: 50%;
+      top: -220px; left: 50%;
       transform: translateX(-50%);
-      width: 800px; height: 500px;
-      background: radial-gradient(ellipse, rgba(0,212,255,0.07) 0%, transparent 70%);
+      width: 820px; height: 520px;
+      background: radial-gradient(ellipse, rgba(247,185,85,0.10) 0%, transparent 70%);
       pointer-events: none;
       z-index: 0;
     }
 
-    .container {
-      position: relative;
-      z-index: 1;
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 60px 24px 80px;
-    }
+    .container { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; padding: 60px 24px 80px; }
 
-    header {
-      text-align: center;
-      margin-bottom: 56px;
-    }
+    header { text-align: center; margin-bottom: 56px; }
 
-    .logo {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 28px;
-    }
-
-    .logo-dot {
-      width: 10px; height: 10px;
-      border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 12px var(--accent);
-    }
-
-    .logo-text {
-      font-size: 22px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      color: #fff;
-    }
+    .logo { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 28px; text-decoration: none; }
+    .logo svg { width: 34px; height: 34px; }
+    .logo-text { font-family: 'Exo 2', sans-serif; font-size: 22px; font-weight: 900; letter-spacing: 1px; color: #fff; }
 
     header h1 {
+      font-family: 'Exo 2', sans-serif;
       font-size: clamp(28px, 5vw, 40px);
-      font-weight: 800;
-      letter-spacing: -0.5px;
+      font-weight: 900;
+      letter-spacing: 0.3px;
       color: #fff;
       margin-bottom: 12px;
+      line-height: 1.2;
     }
 
-    header p {
-      color: var(--muted);
-      font-size: 14px;
-      letter-spacing: 0.3px;
-    }
+    header p { color: var(--muted); font-size: 14px; letter-spacing: 0.3px; }
 
     .updated {
       display: inline-block;
       margin-top: 14px;
       padding: 5px 14px;
       border-radius: 20px;
-      background: rgba(0,212,255,0.08);
+      background: rgba(247,185,85,0.08);
       border: 1px solid var(--border);
       color: var(--accent);
       font-size: 12px;
@@ -98,67 +78,39 @@
     }
 
     .card {
-      background: var(--bg-card);
+      background: var(--card);
       border: 1px solid var(--border);
       border-radius: 20px;
       padding: 32px;
       margin-bottom: 20px;
       transition: border-color 0.2s;
     }
-
-    .card:hover { border-color: rgba(0,212,255,0.22); }
-
-    .card-header {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 20px;
-    }
-
-    .card h2 {
-      font-size: 18px;
-      font-weight: 700;
-      color: #fff;
-      letter-spacing: 0.1px;
-    }
-
-    .card p { color: rgba(255,255,255,0.72); margin-bottom: 12px; }
+    .card:hover { border-color: rgba(247,185,85,0.3); }
+    .card-header { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
+    .card h2 { font-family: 'Exo 2', sans-serif; font-size: 19px; font-weight: 700; color: #fff; letter-spacing: 0.2px; }
+    .card p { color: var(--body); margin-bottom: 12px; }
     .card p:last-child { margin-bottom: 0; }
+    .card strong { color: var(--text); }
+    .card a { color: var(--accent); }
 
-    ul {
-      list-style: none;
-      margin-top: 8px;
-    }
-
-    ul li {
-      position: relative;
-      padding-left: 18px;
-      margin-bottom: 8px;
-      color: rgba(255,255,255,0.72);
-    }
-
+    ul { list-style: none; margin-top: 8px; }
+    ul li { position: relative; padding-left: 18px; margin-bottom: 8px; color: var(--body); }
     ul li::before {
       content: '';
       position: absolute;
       left: 0; top: 10px;
-      width: 5px; height: 5px;
+      width: 6px; height: 6px;
       border-radius: 50%;
       background: var(--accent);
-      opacity: 0.7;
+      opacity: 0.8;
     }
 
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 14px;
-    }
-
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
     .tag {
       padding: 5px 13px;
       border-radius: 20px;
-      background: rgba(0,212,255,0.06);
-      border: 1px solid rgba(0,212,255,0.18);
+      background: rgba(247,185,85,0.07);
+      border: 1px solid rgba(247,185,85,0.22);
       color: var(--accent);
       font-size: 12px;
       letter-spacing: 0.4px;
@@ -166,46 +118,33 @@
     }
 
     .contact-block {
-      background: linear-gradient(135deg, rgba(0,212,255,0.06), rgba(0,150,200,0.04));
-      border: 1px solid rgba(0,212,255,0.2);
+      background: linear-gradient(135deg, rgba(247,185,85,0.09), rgba(242,146,47,0.04));
+      border: 1px solid rgba(247,185,85,0.24);
       border-radius: 20px;
       padding: 32px;
       text-align: center;
       margin-top: 40px;
     }
-
-    .contact-block h3 {
-      font-size: 20px;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 8px;
-    }
-
+    .contact-block h3 { font-family: 'Exo 2', sans-serif; font-size: 21px; font-weight: 900; color: #fff; margin-bottom: 8px; }
     .contact-block p { color: var(--muted); margin-bottom: 20px; }
-
     .contact-block a {
       display: inline-block;
       padding: 12px 28px;
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
-      color: #020812;
+      background: linear-gradient(90deg, var(--accent-l), var(--accent-d));
+      color: #17131F;
       font-weight: 700;
       font-size: 14px;
       letter-spacing: 0.5px;
-      border-radius: 14px;
+      border-radius: 28px;
       text-decoration: none;
       transition: opacity 0.2s;
     }
-
     .contact-block a:hover { opacity: 0.88; }
 
-    footer {
-      text-align: center;
-      margin-top: 56px;
-      color: rgba(255,255,255,0.2);
-      font-size: 13px;
-    }
-
-    footer span { color: var(--accent); opacity: 0.6; }
+    footer { text-align: center; margin-top: 56px; color: rgba(245,236,221,0.3); font-size: 13px; }
+    footer nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 18px; margin-bottom: 14px; }
+    footer nav a { color: rgba(245,236,221,0.55); text-decoration: none; }
+    footer nav a:hover, footer nav a[aria-current] { color: var(--accent); }
 
     @media (max-width: 520px) {
       .container { padding: 40px 16px 60px; }
@@ -217,10 +156,14 @@
 <div class="container">
 
   <header>
-    <div class="logo">
-      <div class="logo-dot"></div>
+    <a class="logo" href="privacy-policy.html">
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <defs><clipPath id="sky"><rect x="0" y="0" width="32" height="20"/></clipPath></defs>
+        <circle cx="16" cy="20" r="9.5" fill="#F7B955" clip-path="url(#sky)"/>
+        <rect x="3" y="22" width="26" height="2.4" rx="1.2" fill="#F7B955" opacity="0.55"/>
+      </svg>
       <span class="logo-text">StepKey</span>
-    </div>
+    </a>
     <h1>Politique de confidentialité</h1>
     <p>Transparence totale sur la façon dont nous traitons tes données.</p>
     <span class="updated">Dernière mise à jour : septembre 2026</span>
@@ -323,15 +266,21 @@
     <p>Nous t'encourageons à consulter régulièrement cette page. L'utilisation continue de l'application après modification vaut acceptation de la nouvelle politique.</p>
   </div>
 
+
   <div class="contact-block">
     <h3>Une question ?</h3>
     <p>Pour toute demande concernant tes données personnelles ou cette politique de confidentialité, contacte-nous directement.</p>
     <a href="mailto:stepkey73@gmail.com">stepkey73@gmail.com</a>
   </div>
 
+
   <footer>
+    <nav>
+      <a href="privacy-policy.html" aria-current="page">Confidentialité</a>
+      <a href="conditions.html">Conditions d'utilisation</a>
+    </nav>
     <p>&copy; 2026 StepKey — Tous droits réservés<br/>
-    Fait avec <span>♥</span> pour un usage numérique plus sain.</p>
+    Fait avec <span style="color: var(--accent);">♥</span> pour un usage numérique plus sain.</p>
   </footer>
 
 </div>
